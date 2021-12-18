@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<title>My Notes</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+
+<nav class="navbar is-link" role="navigation" aria-label="main navigation">
+	<div class="navbar-end">
+		<div class="navbar-item">
+			<div class="buttons">
+				<a class="button is-primary" href="/logout">
+					<strong>Logout</strong>
+                </a>
+        </div>
+      </div>
+    </div>
+</nav>
+
+<section class="hero is-link">
+	<div class="hero-body has-text-centered">
+		<p class="title">
+			Notes for {{ user }}
+		</p>
+		<p class="subtitle">
+			A place for my personal secrets!
+		</p>
+	</div>
+</section>
+
+<div class="container has-text-centered">
+	<div class="column is-8 is-offset-2">
+		<div class="box">
+			<form action="/note" method="post">
+				<div class="field">
+					<div class="control">
+						<textarea name="notes" class="textarea is-primary" placeholder="Your notes">{{ secret_notes }}</textarea>
+                    </div>
+                </div>
+                <button type='submit' class="button is-block is-info is-fullwidth">Save Changes</button>
+            </form>
+            {% if success %}
+            <br />
+            <br />
+            <div class="notification is-success">
+                Success!
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+</html>
